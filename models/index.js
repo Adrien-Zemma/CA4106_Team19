@@ -17,11 +17,11 @@ const sequelize = new Sequelize(
 );
 sequelize.authenticate()
     .then(() => {
-        console.log("Connected to database successfully");
+        console.log("Connected to database successfully, syncing schema...");
+        sequelize.sync();
     })
     .catch((err) => {
         console.log("Failed to connect to database:");
-        console.error(err);
     });
 
 const indexFile = path.basename(__filename);

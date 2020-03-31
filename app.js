@@ -2,8 +2,11 @@ const express = require("express");
 
 const app = express();
 
+app.set("views", "./views");
+app.set("view engine", "pug");
+
 app.get("/", (req, res) => {
-    res.send("Hello world!");
+    res.render("index");
 })
 
 const PORT = process.env.PORT || 8080;

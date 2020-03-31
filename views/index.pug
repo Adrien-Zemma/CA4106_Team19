@@ -32,14 +32,39 @@ html
                                 button(class="float-right" type="button" class="btn btn-info"
                                     data-toggle=`modal` data-target=`#${movie.imdbID}`) info
 
-                    div(class="modal" id=`${movie.imdbID}` tabindex="-1" role="dialog"
+                    div(class="modal fade" id=`${movie.imdbID}` tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true")
-                        div(class="modal-dialog" role="document")
+                        div(class="modal-dialog modal-lg" role="document")
                             div(class="modal-content")
                                 div(class="modal-header")
                                     h5(class="modal-title")= movie.Title
-                                    div(class="modal-body")
-                                        pre(id="json")=JSON.stringify(movie, undefined, 2)
+                                div(class="modal-body")
+                                    div(class="container-fluid")
+                                        div(class="row")
+                                            div(class="col")
+                                                span= `year: ${movie.Released}`
+                                            div(class="col")
+                                                span= `rated: ${movie.Rated}`
+                                            div(class="col")
+                                                span= `time: ${movie.Runtime}`
+                                        div(class="row")
+                                            div(class="col")
+                                                span= `writer: ${movie.Writer}`
+                                            div(class="col")
+                                                span= `director: ${movie.Director}`
+                                            div(class="col")
+                                                span= `production: ${movie.Production}`
+                                        div(class="row")
+                                            div(class="col")
+                                                span= `actors: ${movie.Actors}`
+                                        div(class="row")
+                                            div(class="col")
+                                                span= `plot: ${movie.Plot}`
+                                        div(class="row")
+                                            each rate in movie.Ratings
+                                                div(class="col")
+                                                    span= `${rate.Source}: ${rate.Value}`
+
         script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous")
         script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

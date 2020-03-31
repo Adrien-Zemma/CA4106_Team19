@@ -1,7 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 
-const models = require("models");
+const models = require("./models");
 
 const app = express();
 

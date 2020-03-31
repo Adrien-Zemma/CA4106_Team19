@@ -31,11 +31,6 @@ app.get("/", async (req, res) => {
     res.render("index", {movies: movies});
 });
 
-app.get("/tests", async (req, res) => {
-    const tests = await models.Test.findAll();
-    res.send(tests);
-});
-
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);

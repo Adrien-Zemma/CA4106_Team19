@@ -1,6 +1,8 @@
 const express = require("express");
 const axios = require("axios");
 
+const models = require("models");
+
 const app = express();
 
 app.set("views", "./views");
@@ -27,6 +29,11 @@ async function getData() {
 app.get("/", async (req, res) => {
     const movies = await getData();
     res.render("index", {movies: movies});
+});
+
+app.get("/tests", async (req, res) => {
+    const tests = await models.Test.findAll();
+    res.send(tests);
 });
 
 const PORT = process.env.PORT || 8080;

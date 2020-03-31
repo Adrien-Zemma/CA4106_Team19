@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Insert secrets into app.yaml
+        env:
+          APP_ENV: ${{ secrets.APP_ENV }}
+        run: echo "$APP_ENV" | base64 -d >> app.yaml
       - name: Setup GCloud SDK
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:

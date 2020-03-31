@@ -1,0 +1,26 @@
+{
+  "name": "ca4106-project",
+  "version": "1.0.0",
+  "description": "CA4106 Cloud Computing project assignment",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com//Demmonius/CA4106_Team19"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "pug": "^2.0.4",
+    "sequelize": "^5.21.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

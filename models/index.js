@@ -9,9 +9,10 @@ const sequelize = new Sequelize(
     process.env.DB_USER,
     process.env.DB_PASS,
     {
+        host: process.env.DB_HOST,
         dialect: "mysql",
         dialectOptions: {
-            socketPath: `/cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}`
+            socketPath: process.env.CLOUD_SQL_CONNECTION_NAME ? `/cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}` : undefined,
         }
     }
 );
@@ -22,6 +23,7 @@ sequelize.authenticate()
     })
     .catch((err) => {
         console.log("Failed to connect to database:");
+        console.error(err);
     });
 
 const indexFile = path.basename(__filename);

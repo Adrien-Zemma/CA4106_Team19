@@ -26,23 +26,29 @@ async function getData() {
     return (await Promise.all(promises)).map(res => res.data);
 }
 
-app.get("/tests", async (req, res) => {
-    const tests = await models.Test.findAll();
-    res.send(tests);
-});
-
-app.get('/populate', async () => {
-    console.log(models.Movie);
-    /*const movies = await getData();
-    for (const movie in movies) {
-        const ret = await db.Movie.create(...movies);
-        console.log(ret)
-    }*/
+app.get('/populate', async (_, res) => {
+    const movies = await getData();
+    const list = await models.Movie.findAll();
+    for (const movie of movies) {
+        if (list.find((elem) => elem.Title === movie.Title))
+            continue;
+        await models.Movie.create(movie);
+    }
+    res.send('ok');
 });
 
 app.get("/", async (req, res) => {
-    const movies = await getData();
-    res.render("index", {movies: movies});
+    if (req.query.movieTitle && !(await models.Movie.findAll()).find((elem) => elem.Title.toLowerCase() === req.query.movieTitle.toLowerCase())) {
+        const newMovie = await axios.get('https://www.omdbapi.com/',
+            {
+                params: {
+                    'apikey': "686069f7",
+                    't': req.query.movieTitle
+                }
+            });
+        await models.Movie.create(newMovie.data);
+    }
+    res.render("index", {movies: await models.Movie.findAll()});
 });
 
 const PORT = process.env.PORT || 8080;

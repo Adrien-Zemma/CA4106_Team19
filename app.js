@@ -1,9 +1,9 @@
 const express = require("express");
 const axios = require("axios");
-
 const models = require("./models");
 
 const app = express();
+
 
 app.set("views", "./views");
 app.set("view engine", "pug");
@@ -25,6 +25,20 @@ async function getData() {
     }
     return (await Promise.all(promises)).map(res => res.data);
 }
+
+app.get("/tests", async (req, res) => {
+    const tests = await models.Test.findAll();
+    res.send(tests);
+});
+
+app.get('/populate', async () => {
+    console.log(models.Movie);
+    /*const movies = await getData();
+    for (const movie in movies) {
+        const ret = await db.Movie.create(...movies);
+        console.log(ret)
+    }*/
+});
 
 app.get("/", async (req, res) => {
     const movies = await getData();

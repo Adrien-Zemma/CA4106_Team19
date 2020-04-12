@@ -14,7 +14,8 @@ const sequelize = new Sequelize(
         dialect: "mysql",
         dialectOptions: {
             socketPath: process.env.CLOUD_SQL_CONNECTION_NAME ? `/cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}` : undefined,
-        }
+        },
+        logging: false
     }
 );
 sequelize.authenticate()

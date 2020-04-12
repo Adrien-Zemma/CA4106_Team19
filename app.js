@@ -37,16 +37,30 @@ app.get('/populate', async (_, res) => {
     res.send('ok');
 });
 
+async function addMovie(title) {
+    const newMovie = await axios.get('https://www.omdbapi.com/',
+        {
+            params: {
+                'apikey': "686069f7",
+                't': title
+            }
+        });
+    await models.Movie.create(newMovie.data);
+}
+
 app.get("/", async (req, res) => {
-    if (req.query.movieTitle && !(await models.Movie.findAll()).find((elem) => elem.Title.toLowerCase() === req.query.movieTitle.toLowerCase())) {
-        const newMovie = await axios.get('https://www.omdbapi.com/',
-            {
-                params: {
-                    'apikey': "686069f7",
-                    't': req.query.movieTitle
-                }
-            });
-        await models.Movie.create(newMovie.data);
+    if (req.query.movieTitle && typeof req.query.movieTitle === "string") {
+        const searchMovie = await models.Movie.findOne({where: {Title: req.query.movieTitle}});
+        if (!searchMovie) {
+            await addMovie(req.query.movieTitle)
+        }
+    }
+    if (req.query.movieToDelete && typeof req.query.movieToDelete === "string") {
+        const searchMovie = await models.Movie.findOne({where: {Title: req.query.movieToDelete}});
+        console.log(searchMovie);
+        if (searchMovie) {
+            await searchMovie.destroy()
+        }
     }
     res.render("index", {movies: await models.Movie.findAll()});
 });

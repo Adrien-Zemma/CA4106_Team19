@@ -57,10 +57,6 @@ module.exports =
                 type: Sequelize.STRING,
                 allowNull: false,
             },
-            "Ratings": {
-                type: Sequelize.STRING,
-                allowNull: true,
-            },
             "Metascore": {
                 type: Sequelize.STRING,
                 allowNull: true,
@@ -71,4 +67,4 @@ module.exports =
             },
         });
         return Movie
-    }
+    };

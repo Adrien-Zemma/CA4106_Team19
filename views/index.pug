@@ -65,6 +65,9 @@ html
                                         div(class="row")
                                             div(class="col")
                                                 span= `plot: ${movie.Plot}`
+                                    form
+                                        input(type="text" hidden class="form-control-plaintext border" name="movieToDelete" id="movieToDelete" value=`${movie.Title}`)
+                                        button(class="float-right btn btn-danger" type="submit") -
 
         script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous")

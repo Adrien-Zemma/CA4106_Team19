@@ -63,7 +63,7 @@ app.get("/*", async (req, res) => {
         }
     }
     const totalMovie = await models.Movie.count();
-    const {count, rows} = await models.Movie.findAndCountAll({offset: offset, limit: 6});
+    const {_, rows} = await models.Movie.findAndCountAll({offset: offset, limit: 6});
     res.render("index", {movies: rows, pageNumber:Math.ceil(totalMovie/6), currentPage:offset});
 });
 

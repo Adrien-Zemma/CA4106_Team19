@@ -71,30 +71,29 @@ html
                                     form
                                         input(type="text" hidden class="form-control-plaintext border" name="movieToDelete" id="movieToDelete" value=`${movie.Title}`)
                                         button(class="float-right btn btn-danger" type="submit") -
-
-                nav(aria-label=" justify-content-center")
-                    ul(class="pagination justify-content-center")
+        nav(aria-label="justify-content-center")
+            ul(class="pagination justify-content-center")
+                li(class="page-item")
+                    a(class="page-link" href=`/${currentPage - 1 < 1 ? 1 : currentPage - 1}` aria-label="Previous")
+                        span(aria-hidden="true") &laquo;
+                        span(class="sr-only") Previous
+                - var count = 0;
+                while count < pageNumber
+                    - count++
+                    if  count === currentPage
+                        li(class="page-item active")
+                            form
+                                input(type="text" hidden name="page" value=`${count}`)
+                                a(type="submit"  class="page-link" href=`/${count}`)= count
+                    else
                         li(class="page-item")
-                            a(class="page-link" href=`/${currentPage - 1 < 1 ? 1 : currentPage - 1}` aria-label="Previous")
-                                span(aria-hidden="true") &laquo;
-                                span(class="sr-only") Previous
-                        - var count = 0;
-                        while count < pageNumber
-                            - count++
-                            if  count === currentPage
-                                li(class="page-item active")
-                                    form
-                                        input(type="text" hidden name="page" value=`${count}`)
-                                        a(type="submit"  class="page-link" href=`/${count}`)= count
-                            else
-                                li(class="page-item")
-                                    form
-                                        input(type="text" hidden name="page" value=`${count}`)
-                                        a(type="submit"  class="page-link" href=`/${count}`)= count
-                        li(class="page-item")
-                            a(class="page-link" href=`/${currentPage + 1 >= pageNumber ? pageNumber : currentPage + 1}` aria-label="Previous")
-                                span(aria-hidden="true") &raquo;
-                                span(class="sr-only") Next
+                            form
+                                input(type="text" hidden name="page" value=`${count}`)
+                                a(type="submit"  class="page-link" href=`/${count}`)= count
+                li(class="page-item")
+                    a(class="page-link" href=`/${currentPage + 1 >= pageNumber ? pageNumber : currentPage + 1}` aria-label="Previous")
+                        span(aria-hidden="true") &raquo;
+                        span(class="sr-only") Next
 
 
 

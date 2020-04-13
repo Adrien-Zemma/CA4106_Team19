@@ -48,10 +48,21 @@ async function addMovie(title) {
     await models.Movie.create(newMovie.data);
 }
 
+async function getMovie(title){
+    return (await axios.get('https://www.omdbapi.com/',
+        {
+            params: {
+                'apikey': "686069f7",
+                't': title
+            }
+        })).data;
+}
+
 app.get("/*", async (req, res) => {
     const page = req.path.split('/')[1] !== '' ? parseInt(req.path.split('/')[1]) : 1;
     if (req.query.movieTitle && typeof req.query.movieTitle === "string") {
-        const searchMovie = await models.Movie.findOne({where: {Title: req.query.movieTitle}});
+        const movie = await getMovie(req.query.movieTitle);
+        const searchMovie = await models.Movie.findOrCreate({where: {Title: movie.Title}, defaults: movie});
         if (!searchMovie) {
             await addMovie(req.query.movieTitle)
         }
@@ -64,7 +75,11 @@ app.get("/*", async (req, res) => {
     }
     const movieByPage = 6;
     const totalMovie = await models.Movie.count();
-    const {_, rows} = await models.Movie.findAndCountAll({offset: (page - 1) * movieByPage, limit: movieByPage});
+    const {_, rows} = await models.Movie.findAndCountAll({
+        offset: (page - 1) * movieByPage,
+        limit: movieByPage,
+        order: [['updatedAt', 'DESC']]
+    });
     res.render("index", {movies: rows, pageNumber: Math.ceil(totalMovie / movieByPage), currentPage: page});
 });
 

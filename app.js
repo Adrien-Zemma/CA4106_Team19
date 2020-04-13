@@ -49,7 +49,7 @@ async function addMovie(title) {
 }
 
 app.get("/*", async (req, res) => {
-    const offset = req.path.split('/')[1] !== '' ? parseInt(req.path.split('/')[1]) : 1;
+    const page = req.path.split('/')[1] !== '' ? parseInt(req.path.split('/')[1]) : 1;
     if (req.query.movieTitle && typeof req.query.movieTitle === "string") {
         const searchMovie = await models.Movie.findOne({where: {Title: req.query.movieTitle}});
         if (!searchMovie) {
@@ -62,9 +62,10 @@ app.get("/*", async (req, res) => {
             await searchMovie.destroy()
         }
     }
+    const movieByPage = 8;
     const totalMovie = await models.Movie.count();
-    const {_, rows} = await models.Movie.findAndCountAll({offset: offset, limit: 6});
-    res.render("index", {movies: rows, pageNumber:Math.ceil(totalMovie/6), currentPage:offset});
+    const {_, rows} = await models.Movie.findAndCountAll({offset: (page - 1) * movieByPage, limit: movieByPage});
+    res.render("index", {movies: rows, pageNumber: Math.ceil(totalMovie / movieByPage), currentPage: page});
 });
 
 const PORT = process.env.PORT || 8080;

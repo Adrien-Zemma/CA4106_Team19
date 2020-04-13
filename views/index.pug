@@ -71,8 +71,8 @@ html
                                     form
                                         input(type="text" hidden class="form-control-plaintext border" name="movieToDelete" id="movieToDelete" value=`${movie.Title}`)
                                         button(class="float-right btn btn-danger" type="submit") -
-        nav(aria-label="justify-content-center")
-            ul(class="pagination justify-content-center")
+        nav(aria-label="justify-content-center ")
+            ul(class="pagination justify-content-center mt-3")
                 li(class="page-item")
                     a(class="page-link" href=`/${currentPage - 1 < 1 ? 1 : currentPage - 1}` aria-label="Previous")
                         span(aria-hidden="true") &laquo;

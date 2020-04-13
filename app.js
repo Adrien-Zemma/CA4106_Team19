@@ -62,7 +62,7 @@ app.get("/*", async (req, res) => {
             await searchMovie.destroy()
         }
     }
-    const movieByPage = 8;
+    const movieByPage = 6;
     const totalMovie = await models.Movie.count();
     const {_, rows} = await models.Movie.findAndCountAll({offset: (page - 1) * movieByPage, limit: movieByPage});
     res.render("index", {movies: rows, pageNumber: Math.ceil(totalMovie / movieByPage), currentPage: page});

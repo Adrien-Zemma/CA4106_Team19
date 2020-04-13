@@ -48,7 +48,8 @@ async function addMovie(title) {
     await models.Movie.create(newMovie.data);
 }
 
-app.get("/", async (req, res) => {
+app.get("/*", async (req, res) => {
+    const offset = req.path.split('/')[1] !== '' ? parseInt(req.path.split('/')[1]) : 1;
     if (req.query.movieTitle && typeof req.query.movieTitle === "string") {
         const searchMovie = await models.Movie.findOne({where: {Title: req.query.movieTitle}});
         if (!searchMovie) {
@@ -57,12 +58,13 @@ app.get("/", async (req, res) => {
     }
     if (req.query.movieToDelete && typeof req.query.movieToDelete === "string") {
         const searchMovie = await models.Movie.findOne({where: {Title: req.query.movieToDelete}});
-        console.log(searchMovie);
         if (searchMovie) {
             await searchMovie.destroy()
         }
     }
-    res.render("index", {movies: await models.Movie.findAll()});
+    const totalMovie = await models.Movie.count();
+    const {count, rows} = await models.Movie.findAndCountAll({offset: offset, limit: 6});
+    res.render("index", {movies: rows, pageNumber:Math.ceil(totalMovie/6), currentPage:offset});
 });
 
 const PORT = process.env.PORT || 8080;

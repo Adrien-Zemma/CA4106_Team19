@@ -40,12 +40,14 @@ html
                                 each genre in movie.Genre.split(", ")
                                     span(class="badge badge-pill badge-primary align-middle")=genre
 
-                    div(class="modal fade" id=`${movie.imdbID}` tabindex="-1" role="dialog"
+                    div(class="modal fade spec" id=`${movie.imdbID}` tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true")
                         div(class="modal-dialog modal-lg" role="document")
                             div(class="modal-content")
                                 div(class="modal-header")
                                     h5(class="modal-title")= movie.Title
+                                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                        span(aria-hidden="true") &times
                                 div(class="modal-body")
                                     div(class="container-fluid")
                                         div(class="row")

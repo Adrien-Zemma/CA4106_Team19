@@ -1,5 +1,9 @@
 # CA4106_Team19
 
+# The blog
+
+For any informations about the projet, please read the [blog](./blog.md)
+
 # Getting start
 ```sh
 docker-compose up

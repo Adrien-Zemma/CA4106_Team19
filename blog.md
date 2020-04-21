@@ -42,6 +42,7 @@ Deadline of the project: April 24th, 2020
 
 ```mermaid
 gantt
+
 dateFormat  DD-MM-YYYY
 axisFormat  %d/%m
 

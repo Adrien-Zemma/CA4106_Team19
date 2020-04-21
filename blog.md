@@ -40,38 +40,7 @@ Start of the project: March 25st, 2020
 End of the project: April 22th, 2020
 Deadline of the project: April 24th, 2020
 
-```mermaid
-gantt
-
-dateFormat  DD-MM-YYYY
-axisFormat  %d/%m
-
-title CA4106 Team 19 - Timeline
-
-section Arthur
-Setup Google Cloud Plateform                 :done, des1, 31-03-2020,02-04-2020
-Setup GitHub Continuous Deploymnent                :done, des2, 02-04-2020,05-04-2020
-
-section Adrien
-Install bootstrap and projet dependencies    :done,    des1, 31-03-2020,05-04-2020
-Front-end page                               :done,    des2, 05-04-2020,07-04-2020
-Create filters                               :done,    des3, 07-04-2020,10-04-2020
-Database integration                         :done,    des4, 10-04-2020,12-04-2020
-Cypress integration                          :done,    des5, 12-04-2020,16-04-2020
-
-section Kilian
-Logo creation                                :done,    des1, 25-03-2020,31-03-2020
-Blog                                         :done, des3, 10-04-2020,16-04-2020
-Slides                                       :done,    des1, 16-04-2020,22-04-2020
-
-section Hugo
-Repository creation                          :done, des1, 29-03-2020,31-03-2020
-Setup back-end with sequelize                :done, des2, 02-04-2020,11-04-2020
-Blog                                         :done, des3, 14-04-2020,17-04-2020
-Readme documentation                         :done, des4, 16-04-2020,17-04-2020
-
-Video editing                                :done, des5, 18-04-2020,22-04-2020
-```
+[![](https://mermaid.ink/img/eyJjb2RlIjoiZ2FudHRcblxuZGF0ZUZvcm1hdCAgREQtTU0tWVlZWVxuYXhpc0Zvcm1hdCAgJWQvJW1cblxudGl0bGUgQ0E0MTA2IFRlYW0gMTkgLSBUaW1lbGluZVxuXG5zZWN0aW9uIEFydGh1clxuU2V0dXAgR29vZ2xlIENsb3VkIFBsYXRlZm9ybSAgICAgICAgICAgICAgICAgOmRvbmUsIGRlczEsIDMxLTAzLTIwMjAsMDItMDQtMjAyMFxuU2V0dXAgR2l0SHViIENvbnRpbnVvdXMgRGVwbG95bW5lbnQgICAgICAgICAgICAgICAgOmRvbmUsIGRlczIsIDAyLTA0LTIwMjAsMDUtMDQtMjAyMFxuXG5zZWN0aW9uIEFkcmllblxuSW5zdGFsbCBib290c3RyYXAgYW5kIHByb2pldCBkZXBlbmRlbmNpZXMgICAgOmRvbmUsICAgIGRlczEsIDMxLTAzLTIwMjAsMDUtMDQtMjAyMFxuRnJvbnQtZW5kIHBhZ2UgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczIsIDA1LTA0LTIwMjAsMDctMDQtMjAyMFxuQ3JlYXRlIGZpbHRlcnMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczMsIDA3LTA0LTIwMjAsMTAtMDQtMjAyMFxuRGF0YWJhc2UgaW50ZWdyYXRpb24gICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczQsIDEwLTA0LTIwMjAsMTItMDQtMjAyMFxuQ3lwcmVzcyBpbnRlZ3JhdGlvbiAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczUsIDEyLTA0LTIwMjAsMTYtMDQtMjAyMFxuXG5zZWN0aW9uIEtpbGlhblxuTG9nbyBjcmVhdGlvbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczEsIDI1LTAzLTIwMjAsMzEtMDMtMjAyMFxuQmxvZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsIGRlczMsIDEwLTA0LTIwMjAsMTYtMDQtMjAyMFxuU2xpZGVzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczEsIDE2LTA0LTIwMjAsMjItMDQtMjAyMFxuXG5zZWN0aW9uIEh1Z29cblJlcG9zaXRvcnkgY3JlYXRpb24gICAgICAgICAgICAgICAgICAgICAgICAgIDpkb25lLCBkZXMxLCAyOS0wMy0yMDIwLDMxLTAzLTIwMjBcblNldHVwIGJhY2stZW5kIHdpdGggc2VxdWVsaXplICAgICAgICAgICAgICAgIDpkb25lLCBkZXMyLCAwMi0wNC0yMDIwLDExLTA0LTIwMjBcbkJsb2cgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDpkb25lLCBkZXMzLCAxNC0wNC0yMDIwLDE3LTA0LTIwMjBcblJlYWRtZSBkb2N1bWVudGF0aW9uICAgICAgICAgICAgICAgICAgICAgICAgIDpkb25lLCBkZXM0LCAxNi0wNC0yMDIwLDE3LTA0LTIwMjBcblxuVmlkZW8gZWRpdGluZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsIGRlczUsIDE4LTA0LTIwMjAsMjItMDQtMjAyMCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ2FudHRcblxuZGF0ZUZvcm1hdCAgREQtTU0tWVlZWVxuYXhpc0Zvcm1hdCAgJWQvJW1cblxudGl0bGUgQ0E0MTA2IFRlYW0gMTkgLSBUaW1lbGluZVxuXG5zZWN0aW9uIEFydGh1clxuU2V0dXAgR29vZ2xlIENsb3VkIFBsYXRlZm9ybSAgICAgICAgICAgICAgICAgOmRvbmUsIGRlczEsIDMxLTAzLTIwMjAsMDItMDQtMjAyMFxuU2V0dXAgR2l0SHViIENvbnRpbnVvdXMgRGVwbG95bW5lbnQgICAgICAgICAgICAgICAgOmRvbmUsIGRlczIsIDAyLTA0LTIwMjAsMDUtMDQtMjAyMFxuXG5zZWN0aW9uIEFkcmllblxuSW5zdGFsbCBib290c3RyYXAgYW5kIHByb2pldCBkZXBlbmRlbmNpZXMgICAgOmRvbmUsICAgIGRlczEsIDMxLTAzLTIwMjAsMDUtMDQtMjAyMFxuRnJvbnQtZW5kIHBhZ2UgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczIsIDA1LTA0LTIwMjAsMDctMDQtMjAyMFxuQ3JlYXRlIGZpbHRlcnMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczMsIDA3LTA0LTIwMjAsMTAtMDQtMjAyMFxuRGF0YWJhc2UgaW50ZWdyYXRpb24gICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczQsIDEwLTA0LTIwMjAsMTItMDQtMjAyMFxuQ3lwcmVzcyBpbnRlZ3JhdGlvbiAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczUsIDEyLTA0LTIwMjAsMTYtMDQtMjAyMFxuXG5zZWN0aW9uIEtpbGlhblxuTG9nbyBjcmVhdGlvbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczEsIDI1LTAzLTIwMjAsMzEtMDMtMjAyMFxuQmxvZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsIGRlczMsIDEwLTA0LTIwMjAsMTYtMDQtMjAyMFxuU2xpZGVzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsICAgIGRlczEsIDE2LTA0LTIwMjAsMjItMDQtMjAyMFxuXG5zZWN0aW9uIEh1Z29cblJlcG9zaXRvcnkgY3JlYXRpb24gICAgICAgICAgICAgICAgICAgICAgICAgIDpkb25lLCBkZXMxLCAyOS0wMy0yMDIwLDMxLTAzLTIwMjBcblNldHVwIGJhY2stZW5kIHdpdGggc2VxdWVsaXplICAgICAgICAgICAgICAgIDpkb25lLCBkZXMyLCAwMi0wNC0yMDIwLDExLTA0LTIwMjBcbkJsb2cgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDpkb25lLCBkZXMzLCAxNC0wNC0yMDIwLDE3LTA0LTIwMjBcblJlYWRtZSBkb2N1bWVudGF0aW9uICAgICAgICAgICAgICAgICAgICAgICAgIDpkb25lLCBkZXM0LCAxNi0wNC0yMDIwLDE3LTA0LTIwMjBcblxuVmlkZW8gZWRpdGluZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmRvbmUsIGRlczUsIDE4LTA0LTIwMjAsMjItMDQtMjAyMCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
 We started working on the project by having a Discord meeting to discuss the details of the project, such as splitting task among ourselves and choosing what kind of data to use in our website.
 
